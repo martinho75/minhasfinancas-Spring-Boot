@@ -16,16 +16,25 @@ import javax.persistence.Table;
 import com.unitel.minhasfinancas.model.enums.StatusLancamento;
 import com.unitel.minhasfinancas.model.enums.TipoLancamento;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Table(name = "lancamento" , schema = "financas")
-public class lancamento {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Lancamento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+
+    @Column (name="descricao")
+    private String descricao;
 
     @Column (name="mes")
     private Integer mes;
